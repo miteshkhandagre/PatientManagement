@@ -1,0 +1,1 @@
+Patient Management Solution built using .netcore to support small healthcare institutes for Patient/Doctors records keeping and new registartions. It also allow to view Patients reports. This is basic functional setup for sonography case and can be expanded for multiple use cases.
