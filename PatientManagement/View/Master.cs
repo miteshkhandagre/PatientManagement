@@ -52,5 +52,11 @@ namespace PatientManagement
             AddLoginUser user = new AddLoginUser();
             user.ShowDialog();
         }
+
+        private void patientReportDatewiseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PatientReports patientReports = new PatientReports();
+            patientReports.ShowDialog();
+        }
     }
 }
