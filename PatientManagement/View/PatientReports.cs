@@ -65,12 +65,12 @@ namespace PatientManagement.View
                 {
 
                     dt = DBManager.Instance.GetPatientRecordByDate(
-                        fromDate.ToString("yyyy-MM-dd"));
+                        fromDate.ToString("yyyy-MM-dd"), doctorDetails1.GetDoctorInfo().Id);
                 }
                 else
                 {
                     dt = DBManager.Instance.GetPatientRecordByDateRange(
-                        fromDate.ToString("yyyy-MM-dd"), toDate.ToString("yyyy-MM-dd"));
+                        fromDate.ToString("yyyy-MM-dd"), toDate.ToString("yyyy-MM-dd"), doctorDetails1.GetDoctorInfo().Id);
                 }
 
                 if (dt != null && dt.Rows.Count > 0)
@@ -83,6 +83,11 @@ namespace PatientManagement.View
                     MessageBox.Show("No records found.");
                 }
             }
+        }
+
+        private void PatientReports_Load(object sender, EventArgs e)
+        {
+            doctorDetails1.AddReportFilterValue();
         }
     }
 }
