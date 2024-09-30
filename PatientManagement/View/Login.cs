@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PatientManagement.Controller;
+using PatientManagement.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
@@ -20,30 +22,31 @@ namespace PatientManagement.View
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string? loginDetails = ConfigurationManager.AppSettings["LoginDetails"];
-            if (string.IsNullOrEmpty(loginDetails)) {
-                MessageBox.Show("Login not configured.");
-                return;
-            }
-
-            string loginId = txtUserId.Text;
-            string password = txtPwd.Text;
+            string loginId = txtUserId.Text.Trim();
+            string password = txtPwd.Text.Trim();
             if (string.IsNullOrEmpty(loginId) && string.IsNullOrEmpty(password)) {
                 MessageBox.Show("Invalid username or password.");
                 return;
             }
 
-            string[] loginArray = loginDetails.Split(':');
-            if (loginArray.Length == 2)
+            string? dbConstr = ConfigurationManager.AppSettings["SqliteConStr"];
+            string dbFile = dbConstr.Substring(12, (dbConstr.IndexOf(';') - 12));
+
+            if (!File.Exists(dbFile))
+                DBManager.Instance.CreateDatabase();
+
+            var result = DBManager.Instance.IsValidUser(loginId, password);
+            if (result.valid)
             {
-                if (loginArray[0] == loginId && loginArray[1] == password)
-                {
-                    this.DialogResult = DialogResult.OK;
-                }
-                else {
-                    MessageBox.Show("Invalid username or password.");
-                }
-            }            
+                Common.LoggedInUser = loginId;
+                Common.UserRole = result.role;
+                this.DialogResult = DialogResult.OK;
+            }
+            else
+            {
+                MessageBox.Show("Invalid username or password.");
+                return;
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

@@ -1,6 +1,6 @@
 ﻿namespace PatientManagement.View
 {
-    partial class Login
+    partial class AddLoginUser
     {
         /// <summary>
         /// Required designer variable.
@@ -29,8 +29,9 @@
         private void InitializeComponent()
         {
             grpLogin = new GroupBox();
-            btnCancel = new Button();
-            btnLogin = new Button();
+            cbRole = new ComboBox();
+            lblRole = new Label();
+            btnAddUser = new Button();
             txtPwd = new TextBox();
             lblPwd = new Label();
             txtUserId = new TextBox();
@@ -40,37 +41,47 @@
             // 
             // grpLogin
             // 
-            grpLogin.Controls.Add(btnCancel);
-            grpLogin.Controls.Add(btnLogin);
+            grpLogin.Controls.Add(cbRole);
+            grpLogin.Controls.Add(lblRole);
+            grpLogin.Controls.Add(btnAddUser);
             grpLogin.Controls.Add(txtPwd);
             grpLogin.Controls.Add(lblPwd);
             grpLogin.Controls.Add(txtUserId);
             grpLogin.Controls.Add(lblUserId);
-            grpLogin.Location = new Point(0, 0);
+            grpLogin.Location = new Point(1, 3);
             grpLogin.Name = "grpLogin";
-            grpLogin.Size = new Size(291, 130);
-            grpLogin.TabIndex = 0;
+            grpLogin.Size = new Size(291, 161);
+            grpLogin.TabIndex = 1;
             grpLogin.TabStop = false;
+            grpLogin.Text = "Login:";
             // 
-            // btnCancel
+            // cbRole
             // 
-            btnCancel.Location = new Point(197, 97);
-            btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(75, 23);
-            btnCancel.TabIndex = 5;
-            btnCancel.Text = "Cancel";
-            btnCancel.UseVisualStyleBackColor = true;
-            btnCancel.Click += btnCancel_Click;
+            cbRole.FormattingEnabled = true;
+            cbRole.Items.AddRange(new object[] { "ADMIN", "DOCTOR", "STAFF" });
+            cbRole.Location = new Point(73, 93);
+            cbRole.Name = "cbRole";
+            cbRole.Size = new Size(199, 23);
+            cbRole.TabIndex = 7;
             // 
-            // btnLogin
+            // lblRole
             // 
-            btnLogin.Location = new Point(113, 97);
-            btnLogin.Name = "btnLogin";
-            btnLogin.Size = new Size(75, 23);
-            btnLogin.TabIndex = 4;
-            btnLogin.Text = "Login";
-            btnLogin.UseVisualStyleBackColor = true;
-            btnLogin.Click += btnLogin_Click;
+            lblRole.AutoSize = true;
+            lblRole.Location = new Point(8, 95);
+            lblRole.Name = "lblRole";
+            lblRole.Size = new Size(33, 15);
+            lblRole.TabIndex = 6;
+            lblRole.Text = "Role:";
+            // 
+            // btnAddUser
+            // 
+            btnAddUser.Location = new Point(193, 128);
+            btnAddUser.Name = "btnAddUser";
+            btnAddUser.Size = new Size(75, 23);
+            btnAddUser.TabIndex = 4;
+            btnAddUser.Text = "Add User";
+            btnAddUser.UseVisualStyleBackColor = true;
+            btnAddUser.Click += btnAddUser_Click;
             // 
             // txtPwd
             // 
@@ -105,17 +116,17 @@
             lblUserId.TabIndex = 0;
             lblUserId.Text = "User Id:";
             // 
-            // Login
+            // AddLoginUser
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(292, 131);
+            ClientSize = new Size(295, 164);
             Controls.Add(grpLogin);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
-            Name = "Login";
-            SizeGripStyle = SizeGripStyle.Hide;
-            Text = "Login";
+            Name = "AddLoginUser";
+            StartPosition = FormStartPosition.CenterParent;
+            Text = "Add Login User";
             grpLogin.ResumeLayout(false);
             grpLogin.PerformLayout();
             ResumeLayout(false);
@@ -124,8 +135,9 @@
         #endregion
 
         private GroupBox grpLogin;
-        private Button btnCancel;
-        private Button btnLogin;
+        private ComboBox cbRole;
+        private Label lblRole;
+        private Button btnAddUser;
         private TextBox txtPwd;
         private Label lblPwd;
         private TextBox txtUserId;

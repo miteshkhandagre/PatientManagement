@@ -1,4 +1,5 @@
 using PatientManagement.Controller;
+using PatientManagement.View;
 
 namespace PatientManagement
 {
@@ -45,6 +46,11 @@ namespace PatientManagement
 
                 Application.Exit();
             }
+        }
+        public void addUserToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddLoginUser user = new AddLoginUser();
+            user.ShowDialog();
         }
     }
 }
