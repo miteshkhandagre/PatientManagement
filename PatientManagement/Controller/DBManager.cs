@@ -2,6 +2,7 @@
 using System.Data;
 using System.Configuration;
 using PatientManagement.Model;
+using PatientManagement.View;
 
 namespace PatientManagement.Controller
 {
@@ -219,15 +220,19 @@ namespace PatientManagement.Controller
             finally { _conn.Close(); }
         }
 
-        public DataTable GetPatientRecordByDate(string fromDate)
+        public DataTable GetPatientRecordByDate(string fromDate, int doctorId)
         {
             DataTable dt = new DataTable();
             try
             {
                 string query = "SELECT PatientId, Name, TestType, TestSpecific, TestResult, DoctorId, DoctorName, Amount, " +
-                    "PaymentMode, PaymentId, Other, CreationDate " +
+                    "PaymentMode, PaymentId, Other, PatientHistory.CreationDate " +
                     "from PatientHistory " +
-                    $"where date(CreationDate) = '{fromDate}'";
+                    $"from PatientHistory inner join Doctors on PatientHistory.DoctorId = Doctors.Id " +
+                    $"where date(PatientHistory.CreationDate) = '{fromDate}'";
+
+                if (doctorId > 0)
+                    query += $" and PatientHistory.DoctorId = {doctorId}";
 
                 SQLiteDataAdapter adapter = new SQLiteDataAdapter(query, _conn);
 
@@ -240,16 +245,19 @@ namespace PatientManagement.Controller
             }
             finally { _conn.Close(); }
         }
-        public DataTable GetPatientRecordByDateRange(string fromDate, string toDate)
+        public DataTable GetPatientRecordByDateRange(string fromDate, string toDate, int doctorId)
         {
             //DBSchema.CreateDoctorsTable(_conn);
             DataTable dt = new DataTable();
             try
             {
                 string query = "SELECT PatientId, Name, TestType, TestSpecific, TestResult, DoctorId, DoctorName, Amount, " +
-                    "PaymentMode, PaymentId, Other, CreationDate " +
-                    "from PatientHistory " +
-                    $"where CreationDate between '{fromDate}' and '{toDate}'";
+                    "PaymentMode, PaymentId, Other, PatientHistory.CreationDate " +
+                    $"from PatientHistory inner join Doctors on PatientHistory.DoctorId = Doctors.Id " +
+                    $"where PatientHistory.CreationDate between '{fromDate}' and '{toDate}'";
+
+                if (doctorId > 0)
+                    query += $" and PatientHistory.DoctorId = {doctorId}";
 
                 SQLiteDataAdapter adapter = new SQLiteDataAdapter(query, _conn);
 

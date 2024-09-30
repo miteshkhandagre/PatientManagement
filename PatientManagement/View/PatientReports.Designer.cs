@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             grpReportFilters = new GroupBox();
+            doctorDetails1 = new DoctorDetails();
             btnReportSearch = new Button();
             grpReportDateRange = new GroupBox();
             lblReportFrom = new Label();
@@ -49,6 +50,7 @@
             // 
             // grpReportFilters
             // 
+            grpReportFilters.Controls.Add(doctorDetails1);
             grpReportFilters.Controls.Add(btnReportSearch);
             grpReportFilters.Controls.Add(grpReportDateRange);
             grpReportFilters.Controls.Add(dtReportYear);
@@ -58,15 +60,22 @@
             grpReportFilters.Dock = DockStyle.Top;
             grpReportFilters.Location = new Point(0, 0);
             grpReportFilters.Name = "grpReportFilters";
-            grpReportFilters.Size = new Size(800, 91);
+            grpReportFilters.Size = new Size(800, 110);
             grpReportFilters.TabIndex = 0;
             grpReportFilters.TabStop = false;
             grpReportFilters.Text = "Report Filters:";
             // 
+            // doctorDetails1
+            // 
+            doctorDetails1.Location = new Point(14, 59);
+            doctorDetails1.Name = "doctorDetails1";
+            doctorDetails1.Size = new Size(216, 48);
+            doctorDetails1.TabIndex = 1;
+            // 
             // btnReportSearch
             // 
             btnReportSearch.ForeColor = Color.Black;
-            btnReportSearch.Location = new Point(697, 64);
+            btnReportSearch.Location = new Point(255, 75);
             btnReportSearch.Name = "btnReportSearch";
             btnReportSearch.Size = new Size(75, 23);
             btnReportSearch.TabIndex = 36;
@@ -167,9 +176,9 @@
             grpPatientDetails.Controls.Add(dgvReport);
             grpPatientDetails.Dock = DockStyle.Fill;
             grpPatientDetails.ForeColor = SystemColors.ControlText;
-            grpPatientDetails.Location = new Point(0, 91);
+            grpPatientDetails.Location = new Point(0, 110);
             grpPatientDetails.Name = "grpPatientDetails";
-            grpPatientDetails.Size = new Size(800, 359);
+            grpPatientDetails.Size = new Size(800, 340);
             grpPatientDetails.TabIndex = 8;
             grpPatientDetails.TabStop = false;
             grpPatientDetails.Text = "Patient Details";
@@ -181,7 +190,7 @@
             dgvReport.Location = new Point(3, 19);
             dgvReport.Name = "dgvReport";
             dgvReport.RowHeadersWidth = 62;
-            dgvReport.Size = new Size(794, 337);
+            dgvReport.Size = new Size(794, 318);
             dgvReport.TabIndex = 0;
             // 
             // PatientReports
@@ -193,6 +202,7 @@
             Controls.Add(grpReportFilters);
             Name = "PatientReports";
             Text = "PatientReports";
+            Load += PatientReports_Load;
             grpReportFilters.ResumeLayout(false);
             grpReportFilters.PerformLayout();
             grpReportDateRange.ResumeLayout(false);
@@ -217,5 +227,6 @@
         private Label label16;
         private GroupBox grpPatientDetails;
         private DataGridView dgvReport;
+        private DoctorDetails doctorDetails1;
     }
 }
