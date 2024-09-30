@@ -40,6 +40,7 @@
             adminToolStripMenuItem = new ToolStripMenuItem();
             createDBToolStripMenuItem = new ToolStripMenuItem();
             addUserToolStripMenuItem = new ToolStripMenuItem();
+            patientReportDatewiseToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -96,7 +97,7 @@
             // 
             // reportsToolStripMenuItem
             // 
-            reportsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { patientHistoryToolStripMenuItem1 });
+            reportsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { patientHistoryToolStripMenuItem1, patientReportDatewiseToolStripMenuItem });
             reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
             reportsToolStripMenuItem.Size = new Size(59, 20);
             reportsToolStripMenuItem.Text = "Reports";
@@ -104,7 +105,7 @@
             // patientHistoryToolStripMenuItem1
             // 
             patientHistoryToolStripMenuItem1.Name = "patientHistoryToolStripMenuItem1";
-            patientHistoryToolStripMenuItem1.Size = new Size(180, 22);
+            patientHistoryToolStripMenuItem1.Size = new Size(199, 22);
             patientHistoryToolStripMenuItem1.Text = "Patient History";
             patientHistoryToolStripMenuItem1.Click += patientHistoryToolStripMenuItem1_Click;
             // 
@@ -118,16 +119,23 @@
             // createDBToolStripMenuItem
             // 
             createDBToolStripMenuItem.Name = "createDBToolStripMenuItem";
-            createDBToolStripMenuItem.Size = new Size(180, 22);
+            createDBToolStripMenuItem.Size = new Size(126, 22);
             createDBToolStripMenuItem.Text = "Create DB";
             createDBToolStripMenuItem.Click += createDBToolStripMenuItem_Click;
             // 
             // addUserToolStripMenuItem
             // 
             addUserToolStripMenuItem.Name = "addUserToolStripMenuItem";
-            addUserToolStripMenuItem.Size = new Size(180, 22);
+            addUserToolStripMenuItem.Size = new Size(126, 22);
             addUserToolStripMenuItem.Text = "Add User";
-            addUserToolStripMenuItem.Click += this.addUserToolStripMenuItem_Click;
+            addUserToolStripMenuItem.Click += addUserToolStripMenuItem_Click;
+            // 
+            // patientReportDatewiseToolStripMenuItem
+            // 
+            patientReportDatewiseToolStripMenuItem.Name = "patientReportDatewiseToolStripMenuItem";
+            patientReportDatewiseToolStripMenuItem.Size = new Size(199, 22);
+            patientReportDatewiseToolStripMenuItem.Text = "Patient Report Datewise";
+            patientReportDatewiseToolStripMenuItem.Click += patientReportDatewiseToolStripMenuItem_Click;
             // 
             // Master
             // 
@@ -158,5 +166,6 @@
         private ToolStripMenuItem reportsToolStripMenuItem;
         private ToolStripMenuItem patientHistoryToolStripMenuItem1;
         private ToolStripMenuItem addUserToolStripMenuItem;
+        private ToolStripMenuItem patientReportDatewiseToolStripMenuItem;
     }
 }

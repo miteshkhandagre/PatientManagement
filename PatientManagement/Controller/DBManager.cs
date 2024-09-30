@@ -219,6 +219,50 @@ namespace PatientManagement.Controller
             finally { _conn.Close(); }
         }
 
+        public DataTable GetPatientRecordByDate(string fromDate)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                string query = "SELECT PatientId, Name, TestType, TestSpecific, TestResult, DoctorId, DoctorName, Amount, " +
+                    "PaymentMode, PaymentId, Other, CreationDate " +
+                    "from PatientHistory " +
+                    $"where date(CreationDate) = '{fromDate}'";
+
+                SQLiteDataAdapter adapter = new SQLiteDataAdapter(query, _conn);
+
+                adapter.Fill(dt);
+                return dt;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally { _conn.Close(); }
+        }
+        public DataTable GetPatientRecordByDateRange(string fromDate, string toDate)
+        {
+            //DBSchema.CreateDoctorsTable(_conn);
+            DataTable dt = new DataTable();
+            try
+            {
+                string query = "SELECT PatientId, Name, TestType, TestSpecific, TestResult, DoctorId, DoctorName, Amount, " +
+                    "PaymentMode, PaymentId, Other, CreationDate " +
+                    "from PatientHistory " +
+                    $"where CreationDate between '{fromDate}' and '{toDate}'";
+
+                SQLiteDataAdapter adapter = new SQLiteDataAdapter(query, _conn);
+
+                adapter.Fill(dt);
+                return dt;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally { _conn.Close(); }
+        }
+
 
         #endregion
 
@@ -314,13 +358,11 @@ namespace PatientManagement.Controller
                 var cmd = _conn.CreateCommand();
                 cmd.CommandText = $@"Select Id, Role from LoginUsers  
                                     where Username = '{username}' and Password = '{password}' ";
-                using (var reader = cmd.ExecuteReader())
+                var reader = cmd.ExecuteReader();
+                if (reader != null && reader.HasRows)
                 {
-                    if (reader != null && reader.HasRows)
-                    {
-                        reader.Read();
-                        return (true, Convert.ToString(reader["Role"]));
-                    }
+                    reader.Read();
+                    return (true, Convert.ToString(reader["Role"]));
                 }
                 return (false, "User");
             }
