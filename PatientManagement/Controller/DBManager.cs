@@ -38,11 +38,13 @@ namespace PatientManagement.Controller
                     Directory.CreateDirectory("DB");
 
                 _conn = new SQLiteConnection(dbConstr);
+                DBSchema.CreateLoginUserTable(_conn);
                 DBSchema.CreatePatientInfoTable(_conn);
                 DBSchema.CreatePatientInfoTableIndex(_conn);
                 DBSchema.CreateDoctorsTable(_conn);
                 DBSchema.CreatePatientHistoryTable(_conn);
                 DBSchema.CreatePatientHistoryTableIndex(_conn);
+                AddLoginUser("Admin", "Admin", "ADMIN");
 
                 return true;
             }
@@ -265,6 +267,71 @@ namespace PatientManagement.Controller
             }
             finally { _conn.Close(); }
         }
+
+        #region Login Users
+        public bool AddLoginUser(string username, string password, string role)
+        {
+            try
+            {
+                _conn.Open();
+                var cmd = _conn.CreateCommand();
+                cmd.CommandText = $@"INSERT INTO LoginUsers(Username, Password, Role) 
+                                    VALUES('{username}', '{password}', '{role}') ";
+                if (cmd.ExecuteNonQuery() > 0)
+                    return true;
+                return false;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally { _conn.Close(); }
+        }
+
+        public DataTable GetLoginUser()
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                SQLiteDataAdapter adapter = new SQLiteDataAdapter(
+                    "SELECT Id, Username, Password, Role from LoginUsers", _conn);
+
+                adapter.Fill(dt);
+                return dt;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally { _conn.Close(); }
+        }
+
+        public (bool valid, string role) IsValidUser(string username, string password)
+        {
+            try
+            {
+                _conn.Open();
+                var cmd = _conn.CreateCommand();
+                cmd.CommandText = $@"Select Id, Role from LoginUsers  
+                                    where Username = '{username}' and Password = '{password}' ";
+                using (var reader = cmd.ExecuteReader())
+                {
+                    if (reader != null && reader.HasRows)
+                    {
+                        reader.Read();
+                        return (true, Convert.ToString(reader["Role"]));
+                    }
+                }
+                return (false, "User");
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally { _conn.Close(); }
+        }
+
+        #endregion
 
         public void Dispose()
         {

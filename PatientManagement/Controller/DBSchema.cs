@@ -121,5 +121,27 @@ namespace PatientManagement.Controller
             catch (Exception) { throw; }
             finally { conn.Close(); }
         }
+
+        public static void CreateLoginUserTable(SQLiteConnection conn)
+        {
+            try
+            {
+                conn.Open();
+
+                var cmd = conn.CreateCommand();
+                cmd.CommandText = @"drop table if exists LoginUsers";
+                cmd.ExecuteNonQuery();
+
+                cmd = conn.CreateCommand();
+                cmd.CommandText = @"Create table if not exists LoginUsers(
+                                    [Id] INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+                                    [Username] NVARCHAR(100) NOT NULL UNIQUE,
+                                    [Password] NVARCHAR(128) NOT NULL,
+                                    [Role] TEXT NOT NULL)";
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception) { throw; }
+            finally { conn.Close(); }
+        }
     }
 }

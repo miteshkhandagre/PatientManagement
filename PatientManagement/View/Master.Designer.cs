@@ -35,10 +35,11 @@
             patientToolStripMenuItem = new ToolStripMenuItem();
             doctorToolStripMenuItem = new ToolStripMenuItem();
             uSGToolStripMenuItem = new ToolStripMenuItem();
-            adminToolStripMenuItem = new ToolStripMenuItem();
-            createDBToolStripMenuItem = new ToolStripMenuItem();
             reportsToolStripMenuItem = new ToolStripMenuItem();
             patientHistoryToolStripMenuItem1 = new ToolStripMenuItem();
+            adminToolStripMenuItem = new ToolStripMenuItem();
+            createDBToolStripMenuItem = new ToolStripMenuItem();
+            addUserToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -75,37 +76,23 @@
             // patientToolStripMenuItem
             // 
             patientToolStripMenuItem.Name = "patientToolStripMenuItem";
-            patientToolStripMenuItem.Size = new Size(180, 22);
+            patientToolStripMenuItem.Size = new Size(111, 22);
             patientToolStripMenuItem.Text = "Patient";
             patientToolStripMenuItem.Click += patientToolStripMenuItem_Click;
             // 
             // doctorToolStripMenuItem
             // 
             doctorToolStripMenuItem.Name = "doctorToolStripMenuItem";
-            doctorToolStripMenuItem.Size = new Size(180, 22);
+            doctorToolStripMenuItem.Size = new Size(111, 22);
             doctorToolStripMenuItem.Text = "Doctor";
             doctorToolStripMenuItem.Click += doctorToolStripMenuItem_Click;
             // 
             // uSGToolStripMenuItem
             // 
             uSGToolStripMenuItem.Name = "uSGToolStripMenuItem";
-            uSGToolStripMenuItem.Size = new Size(180, 22);
+            uSGToolStripMenuItem.Size = new Size(111, 22);
             uSGToolStripMenuItem.Text = "USG";
             uSGToolStripMenuItem.Click += uSGToolStripMenuItem_Click;
-            // 
-            // adminToolStripMenuItem
-            // 
-            adminToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { createDBToolStripMenuItem });
-            adminToolStripMenuItem.Name = "adminToolStripMenuItem";
-            adminToolStripMenuItem.Size = new Size(55, 20);
-            adminToolStripMenuItem.Text = "Admin";
-            // 
-            // createDBToolStripMenuItem
-            // 
-            createDBToolStripMenuItem.Name = "createDBToolStripMenuItem";
-            createDBToolStripMenuItem.Size = new Size(180, 22);
-            createDBToolStripMenuItem.Text = "Create DB";
-            createDBToolStripMenuItem.Click += createDBToolStripMenuItem_Click;
             // 
             // reportsToolStripMenuItem
             // 
@@ -119,7 +106,28 @@
             patientHistoryToolStripMenuItem1.Name = "patientHistoryToolStripMenuItem1";
             patientHistoryToolStripMenuItem1.Size = new Size(180, 22);
             patientHistoryToolStripMenuItem1.Text = "Patient History";
-            patientHistoryToolStripMenuItem1.Click += this.patientHistoryToolStripMenuItem1_Click;
+            patientHistoryToolStripMenuItem1.Click += patientHistoryToolStripMenuItem1_Click;
+            // 
+            // adminToolStripMenuItem
+            // 
+            adminToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { createDBToolStripMenuItem, addUserToolStripMenuItem });
+            adminToolStripMenuItem.Name = "adminToolStripMenuItem";
+            adminToolStripMenuItem.Size = new Size(55, 20);
+            adminToolStripMenuItem.Text = "Admin";
+            // 
+            // createDBToolStripMenuItem
+            // 
+            createDBToolStripMenuItem.Name = "createDBToolStripMenuItem";
+            createDBToolStripMenuItem.Size = new Size(180, 22);
+            createDBToolStripMenuItem.Text = "Create DB";
+            createDBToolStripMenuItem.Click += createDBToolStripMenuItem_Click;
+            // 
+            // addUserToolStripMenuItem
+            // 
+            addUserToolStripMenuItem.Name = "addUserToolStripMenuItem";
+            addUserToolStripMenuItem.Size = new Size(180, 22);
+            addUserToolStripMenuItem.Text = "Add User";
+            addUserToolStripMenuItem.Click += this.addUserToolStripMenuItem_Click;
             // 
             // Master
             // 
@@ -149,5 +157,6 @@
         private ToolStripMenuItem createDBToolStripMenuItem;
         private ToolStripMenuItem reportsToolStripMenuItem;
         private ToolStripMenuItem patientHistoryToolStripMenuItem1;
+        private ToolStripMenuItem addUserToolStripMenuItem;
     }
 }
