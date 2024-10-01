@@ -37,10 +37,11 @@
             uSGToolStripMenuItem = new ToolStripMenuItem();
             reportsToolStripMenuItem = new ToolStripMenuItem();
             patientHistoryToolStripMenuItem1 = new ToolStripMenuItem();
+            patientReportDatewiseToolStripMenuItem = new ToolStripMenuItem();
             adminToolStripMenuItem = new ToolStripMenuItem();
             createDBToolStripMenuItem = new ToolStripMenuItem();
             addUserToolStripMenuItem = new ToolStripMenuItem();
-            patientReportDatewiseToolStripMenuItem = new ToolStripMenuItem();
+            doctorsToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -97,7 +98,7 @@
             // 
             // reportsToolStripMenuItem
             // 
-            reportsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { patientHistoryToolStripMenuItem1, patientReportDatewiseToolStripMenuItem });
+            reportsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { patientHistoryToolStripMenuItem1, patientReportDatewiseToolStripMenuItem, doctorsToolStripMenuItem });
             reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
             reportsToolStripMenuItem.Size = new Size(59, 20);
             reportsToolStripMenuItem.Text = "Reports";
@@ -108,6 +109,13 @@
             patientHistoryToolStripMenuItem1.Size = new Size(199, 22);
             patientHistoryToolStripMenuItem1.Text = "Patient History";
             patientHistoryToolStripMenuItem1.Click += patientHistoryToolStripMenuItem1_Click;
+            // 
+            // patientReportDatewiseToolStripMenuItem
+            // 
+            patientReportDatewiseToolStripMenuItem.Name = "patientReportDatewiseToolStripMenuItem";
+            patientReportDatewiseToolStripMenuItem.Size = new Size(199, 22);
+            patientReportDatewiseToolStripMenuItem.Text = "Patient Report Datewise";
+            patientReportDatewiseToolStripMenuItem.Click += patientReportDatewiseToolStripMenuItem_Click;
             // 
             // adminToolStripMenuItem
             // 
@@ -130,12 +138,12 @@
             addUserToolStripMenuItem.Text = "Add User";
             addUserToolStripMenuItem.Click += addUserToolStripMenuItem_Click;
             // 
-            // patientReportDatewiseToolStripMenuItem
+            // doctorsToolStripMenuItem
             // 
-            patientReportDatewiseToolStripMenuItem.Name = "patientReportDatewiseToolStripMenuItem";
-            patientReportDatewiseToolStripMenuItem.Size = new Size(199, 22);
-            patientReportDatewiseToolStripMenuItem.Text = "Patient Report Datewise";
-            patientReportDatewiseToolStripMenuItem.Click += patientReportDatewiseToolStripMenuItem_Click;
+            doctorsToolStripMenuItem.Name = "doctorsToolStripMenuItem";
+            doctorsToolStripMenuItem.Size = new Size(199, 22);
+            doctorsToolStripMenuItem.Text = "Doctors";
+            doctorsToolStripMenuItem.Click += doctorsToolStripMenuItem_Click;
             // 
             // Master
             // 
@@ -167,5 +175,6 @@
         private ToolStripMenuItem patientHistoryToolStripMenuItem1;
         private ToolStripMenuItem addUserToolStripMenuItem;
         private ToolStripMenuItem patientReportDatewiseToolStripMenuItem;
+        private ToolStripMenuItem doctorsToolStripMenuItem;
     }
 }
