@@ -38,10 +38,10 @@
             reportsToolStripMenuItem = new ToolStripMenuItem();
             patientHistoryToolStripMenuItem1 = new ToolStripMenuItem();
             patientReportDatewiseToolStripMenuItem = new ToolStripMenuItem();
+            doctorsToolStripMenuItem = new ToolStripMenuItem();
             adminToolStripMenuItem = new ToolStripMenuItem();
             createDBToolStripMenuItem = new ToolStripMenuItem();
             addUserToolStripMenuItem = new ToolStripMenuItem();
-            doctorsToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -78,21 +78,21 @@
             // patientToolStripMenuItem
             // 
             patientToolStripMenuItem.Name = "patientToolStripMenuItem";
-            patientToolStripMenuItem.Size = new Size(111, 22);
+            patientToolStripMenuItem.Size = new Size(180, 22);
             patientToolStripMenuItem.Text = "Patient";
             patientToolStripMenuItem.Click += patientToolStripMenuItem_Click;
             // 
             // doctorToolStripMenuItem
             // 
             doctorToolStripMenuItem.Name = "doctorToolStripMenuItem";
-            doctorToolStripMenuItem.Size = new Size(111, 22);
+            doctorToolStripMenuItem.Size = new Size(180, 22);
             doctorToolStripMenuItem.Text = "Doctor";
             doctorToolStripMenuItem.Click += doctorToolStripMenuItem_Click;
             // 
             // uSGToolStripMenuItem
             // 
             uSGToolStripMenuItem.Name = "uSGToolStripMenuItem";
-            uSGToolStripMenuItem.Size = new Size(111, 22);
+            uSGToolStripMenuItem.Size = new Size(180, 22);
             uSGToolStripMenuItem.Text = "USG";
             uSGToolStripMenuItem.Click += uSGToolStripMenuItem_Click;
             // 
@@ -117,6 +117,13 @@
             patientReportDatewiseToolStripMenuItem.Text = "Patient Report Datewise";
             patientReportDatewiseToolStripMenuItem.Click += patientReportDatewiseToolStripMenuItem_Click;
             // 
+            // doctorsToolStripMenuItem
+            // 
+            doctorsToolStripMenuItem.Name = "doctorsToolStripMenuItem";
+            doctorsToolStripMenuItem.Size = new Size(199, 22);
+            doctorsToolStripMenuItem.Text = "Doctors";
+            doctorsToolStripMenuItem.Click += doctorsToolStripMenuItem_Click;
+            // 
             // adminToolStripMenuItem
             // 
             adminToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { createDBToolStripMenuItem, addUserToolStripMenuItem });
@@ -127,23 +134,16 @@
             // createDBToolStripMenuItem
             // 
             createDBToolStripMenuItem.Name = "createDBToolStripMenuItem";
-            createDBToolStripMenuItem.Size = new Size(126, 22);
+            createDBToolStripMenuItem.Size = new Size(180, 22);
             createDBToolStripMenuItem.Text = "Create DB";
             createDBToolStripMenuItem.Click += createDBToolStripMenuItem_Click;
             // 
             // addUserToolStripMenuItem
             // 
             addUserToolStripMenuItem.Name = "addUserToolStripMenuItem";
-            addUserToolStripMenuItem.Size = new Size(126, 22);
+            addUserToolStripMenuItem.Size = new Size(180, 22);
             addUserToolStripMenuItem.Text = "Add User";
             addUserToolStripMenuItem.Click += addUserToolStripMenuItem_Click;
-            // 
-            // doctorsToolStripMenuItem
-            // 
-            doctorsToolStripMenuItem.Name = "doctorsToolStripMenuItem";
-            doctorsToolStripMenuItem.Size = new Size(199, 22);
-            doctorsToolStripMenuItem.Text = "Doctors";
-            doctorsToolStripMenuItem.Click += doctorsToolStripMenuItem_Click;
             // 
             // Master
             // 
@@ -154,6 +154,7 @@
             MainMenuStrip = menuStrip1;
             Name = "Master";
             Text = "Patient Management";
+            Load += Master_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);

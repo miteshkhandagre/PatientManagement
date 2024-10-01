@@ -36,7 +36,8 @@ namespace PatientManagement.View
                 MessageBox.Show("User added successfully.");
                 this.Close();
             }
-            MessageBox.Show("Error while trying to add user.");
+            else
+                MessageBox.Show("Error while trying to add user.");
         }
     }
 }

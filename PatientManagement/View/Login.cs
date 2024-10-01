@@ -38,8 +38,8 @@ namespace PatientManagement.View
             var result = DBManager.Instance.IsValidUser(loginId, password);
             if (result.valid)
             {
-                Common.LoggedInUser = loginId;
-                Common.UserRole = result.role;
+                User.Name = loginId;
+                User.Role = result.role;
                 this.DialogResult = DialogResult.OK;
             }
             else
