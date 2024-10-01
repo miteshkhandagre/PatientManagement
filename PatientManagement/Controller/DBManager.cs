@@ -366,11 +366,13 @@ namespace PatientManagement.Controller
                 var cmd = _conn.CreateCommand();
                 cmd.CommandText = $@"Select Id, Role from LoginUsers  
                                     where Username = '{username}' and Password = '{password}' ";
-                var reader = cmd.ExecuteReader();
-                if (reader != null && reader.HasRows)
+                using (var reader = cmd.ExecuteReader())
                 {
-                    reader.Read();
-                    return (true, Convert.ToString(reader["Role"]));
+                    if (reader != null && reader.HasRows)
+                    {
+                        reader.Read();
+                        return (true, Convert.ToString(reader["Role"]));
+                    }
                 }
                 return (false, "User");
             }

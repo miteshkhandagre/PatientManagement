@@ -1,4 +1,5 @@
 using PatientManagement.Controller;
+using PatientManagement.Model;
 using PatientManagement.View;
 
 namespace PatientManagement
@@ -63,6 +64,28 @@ namespace PatientManagement
         {
             Doctors doctors = new Doctors();
             doctors.ShowDialog();
+        }
+
+        private void Master_Load(object sender, EventArgs e)
+        {
+            if (User.IsAdmin)
+            {
+                adminToolStripMenuItem.Visible = true;
+                registrationToolStripMenuItem.Visible = true;
+                reportsToolStripMenuItem.Visible = true;
+            }
+            else if (User.IsStaff)
+            {
+                adminToolStripMenuItem.Visible = false;
+                registrationToolStripMenuItem.Visible = true;
+                reportsToolStripMenuItem.Visible = true;
+            }
+            else if (User.IsDoctor)
+            {
+                adminToolStripMenuItem.Visible = false;
+                registrationToolStripMenuItem.Visible = false;
+                reportsToolStripMenuItem.Visible = true;
+            }
         }
     }
 }
