@@ -58,5 +58,11 @@ namespace PatientManagement
             PatientReports patientReports = new PatientReports();
             patientReports.ShowDialog();
         }
+
+        private void doctorsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Doctors doctors = new Doctors();
+            doctors.ShowDialog();
+        }
     }
 }
