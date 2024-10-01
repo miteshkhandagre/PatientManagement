@@ -29,7 +29,7 @@ namespace PatientManagement
                 FirstName = txtFirstName.Text,
                 LastName = txtLastName.Text,
                 DoB = dtpDoB.Value,
-                Gender = rbMale.Checked ? "Male" : (rbFemale.Checked ? "Female" : "Other"),
+                Gender = rbMale.Checked ? "Male" : (rbFemale.Checked ? "Female" : (rbOther.Checked ? "Other" : string.Empty)),
                 Mobile = mobileNo,
                 Email = txtEmail.Text,
                 Address = txtAddress.Text,
