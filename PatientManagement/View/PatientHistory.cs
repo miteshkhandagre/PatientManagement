@@ -21,6 +21,9 @@ namespace PatientManagement
 
         public void btnFind_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtId.Text)) {
+                MessageBox.Show("Please enter valid patient id to search.");
+            }
             int patientId;
             if (!string.IsNullOrEmpty(txtId.Text) && int.TryParse(txtId.Text, out patientId))
             {

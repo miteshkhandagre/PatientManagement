@@ -23,6 +23,39 @@ namespace PatientManagement
         {
             PatientInfoDto patientInfoDto = patientDetails1.GetPatientInfo();
 
+            if (patientInfoDto != null) {
+                if (string.IsNullOrEmpty(patientInfoDto.FirstName))
+                {
+                    MessageBox.Show("Please provide valid FirstName.");
+                    return;
+                }
+                if (string.IsNullOrEmpty(patientInfoDto.LastName))
+                {
+                    MessageBox.Show("Please provide valid LastName.");
+                    return;
+                }
+                if (patientInfoDto.Mobile == 0)
+                {
+                    MessageBox.Show("Please provide valid Mobile No.");
+                    return;
+                }
+                if (string.IsNullOrEmpty(patientInfoDto.Gender))
+                {
+                    MessageBox.Show("Please provide valid Gender.");
+                    return;
+                }
+                if (string.IsNullOrEmpty(patientInfoDto.IdType))
+                {
+                    MessageBox.Show("Please provide valid Id Type.");
+                    return;
+                }
+                if (string.IsNullOrEmpty(patientInfoDto.IdDetails))
+                {
+                    MessageBox.Show("Please provide valid Id Details.");
+                    return;
+                }
+            }
+
             (bool success, int newId) = DBManager.Instance.AddPatientInfo(patientInfoDto);
             if (success)
             {
