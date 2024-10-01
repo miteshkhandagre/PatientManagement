@@ -16,6 +16,33 @@ namespace PatientManagement
 
         public void btnSave_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtFirstName.Text))
+            {
+                MessageBox.Show("Please provide valid FirstName.");
+                return;
+            }
+            if (string.IsNullOrEmpty(txtLastName.Text))
+            {
+                MessageBox.Show("Please provide valid LastName.");
+                return;
+            }
+            bool genderSelected = rbMale.Checked || rbFemale.Checked || rbOther.Checked;
+            if (!genderSelected)
+            {
+                MessageBox.Show("Please select valid Gender.");
+                return;
+            }
+            if (string.IsNullOrEmpty(txtMobile.Text))
+            {
+                MessageBox.Show("Please provide valid Mobile No.");
+                return;
+            }
+            if (string.IsNullOrEmpty(txtRegNo.Text))
+            {
+                MessageBox.Show("Please provide valid registration no.");
+                return;
+            }
+
             DoctorInfoDto doctorInfo = new DoctorInfoDto
             {
                 FirstName = txtFirstName.Text,
@@ -23,7 +50,7 @@ namespace PatientManagement
                 Mobile = Convert.ToInt32(txtMobile.Text),
                 Email = txtEmail.Text,
                 Address = txtAddress.Text,
-                Gender = rbMale.Checked ? "Male" : (rbFemale.Checked ? "Female" : "Other"),
+                Gender = rbMale.Checked ? "Male" : (rbFemale.Checked ? "Female" : (rbOther.Checked ? "Other" : string.Empty)),
                 RegistrationNo = txtRegNo.Text
             };
 
