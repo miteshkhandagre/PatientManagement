@@ -66,6 +66,11 @@ namespace PatientManagement
             doctors.ShowDialog();
         }
 
+        private void xRAYToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Xray xray = new Xray();
+            xray.ShowDialog();
+        }
         private void Master_Load(object sender, EventArgs e)
         {
             if (User.IsAdmin)
