@@ -35,6 +35,7 @@
             patientToolStripMenuItem = new ToolStripMenuItem();
             doctorToolStripMenuItem = new ToolStripMenuItem();
             uSGToolStripMenuItem = new ToolStripMenuItem();
+            xRAYToolStripMenuItem = new ToolStripMenuItem();
             reportsToolStripMenuItem = new ToolStripMenuItem();
             patientHistoryToolStripMenuItem1 = new ToolStripMenuItem();
             patientReportDatewiseToolStripMenuItem = new ToolStripMenuItem();
@@ -42,7 +43,7 @@
             adminToolStripMenuItem = new ToolStripMenuItem();
             createDBToolStripMenuItem = new ToolStripMenuItem();
             addUserToolStripMenuItem = new ToolStripMenuItem();
-            xRAYToolStripMenuItem = new ToolStripMenuItem();
+            bloodTestToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -71,7 +72,7 @@
             // 
             // registrationToolStripMenuItem
             // 
-            registrationToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { patientToolStripMenuItem, doctorToolStripMenuItem, uSGToolStripMenuItem, xRAYToolStripMenuItem });
+            registrationToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { patientToolStripMenuItem, doctorToolStripMenuItem, uSGToolStripMenuItem, xRAYToolStripMenuItem, bloodTestToolStripMenuItem });
             registrationToolStripMenuItem.Name = "registrationToolStripMenuItem";
             registrationToolStripMenuItem.Size = new Size(82, 20);
             registrationToolStripMenuItem.Text = "Registration";
@@ -96,6 +97,13 @@
             uSGToolStripMenuItem.Size = new Size(180, 22);
             uSGToolStripMenuItem.Text = "USG";
             uSGToolStripMenuItem.Click += uSGToolStripMenuItem_Click;
+            // 
+            // xRAYToolStripMenuItem
+            // 
+            xRAYToolStripMenuItem.Name = "xRAYToolStripMenuItem";
+            xRAYToolStripMenuItem.Size = new Size(180, 22);
+            xRAYToolStripMenuItem.Text = "XRAY";
+            xRAYToolStripMenuItem.Click += xRAYToolStripMenuItem_Click;
             // 
             // reportsToolStripMenuItem
             // 
@@ -146,12 +154,12 @@
             addUserToolStripMenuItem.Text = "Add User";
             addUserToolStripMenuItem.Click += addUserToolStripMenuItem_Click;
             // 
-            // xRAYToolStripMenuItem
+            // bloodTestToolStripMenuItem
             // 
-            xRAYToolStripMenuItem.Name = "xRAYToolStripMenuItem";
-            xRAYToolStripMenuItem.Size = new Size(180, 22);
-            xRAYToolStripMenuItem.Text = "XRAY";
-            xRAYToolStripMenuItem.Click += xRAYToolStripMenuItem_Click;
+            bloodTestToolStripMenuItem.Name = "bloodTestToolStripMenuItem";
+            bloodTestToolStripMenuItem.Size = new Size(180, 22);
+            bloodTestToolStripMenuItem.Text = "Blood Test";
+            bloodTestToolStripMenuItem.Click += bloodTestToolStripMenuItem_Click;
             // 
             // Master
             // 
@@ -186,5 +194,6 @@
         private ToolStripMenuItem patientReportDatewiseToolStripMenuItem;
         private ToolStripMenuItem doctorsToolStripMenuItem;
         private ToolStripMenuItem xRAYToolStripMenuItem;
+        private ToolStripMenuItem bloodTestToolStripMenuItem;
     }
 }
