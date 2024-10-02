@@ -85,6 +85,7 @@ namespace PatientManagement
                 adminToolStripMenuItem.Visible = false;
                 registrationToolStripMenuItem.Visible = false;
                 reportsToolStripMenuItem.Visible = true;
+                patientHistoryToolStripMenuItem1.Visible = false;
             }
         }
     }

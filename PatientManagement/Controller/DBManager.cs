@@ -358,7 +358,7 @@ namespace PatientManagement.Controller
             finally { _conn.Close(); }
         }
 
-        public (bool valid, string role) IsValidUser(string username, string password)
+        public (bool valid, int id, string role) IsValidUser(string username, string password)
         {
             try
             {
@@ -371,10 +371,10 @@ namespace PatientManagement.Controller
                     if (reader != null && reader.HasRows)
                     {
                         reader.Read();
-                        return (true, Convert.ToString(reader["Role"]));
+                        return (true, Convert.ToInt32(reader["Id"]), Convert.ToString(reader["Role"]));
                     }
                 }
-                return (false, "User");
+                return (false, -1, "User");
             }
             catch (Exception)
             {
