@@ -1,4 +1,5 @@
 ﻿using PatientManagement.Controller;
+using PatientManagement.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace PatientManagement.View
 {
@@ -47,6 +49,22 @@ namespace PatientManagement.View
                 cbDoctor.ValueMember = "Id";
                 cbDoctor.SelectedValue = 0;
             }
+        }
+
+        public void DisplayCurrentUser()
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("FirstName", typeof(string));
+            dt.Columns.Add("Id", typeof(int));
+            DataRow drow = dt.NewRow();
+            drow["Id"] = User.Id;
+            drow["FirstName"] = User.Name;
+            dt.Rows.Add(drow);
+            cbDoctor.DataSource = null;
+            cbDoctor.Items.Clear();
+            cbDoctor.DataSource = dt;
+            cbDoctor.DisplayMember = "FirstName";
+            cbDoctor.ValueMember = "Id";
         }
 
         public (int Id, string FirstName, string LastName) GetDoctorInfo()

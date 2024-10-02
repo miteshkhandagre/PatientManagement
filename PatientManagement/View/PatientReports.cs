@@ -1,4 +1,5 @@
 ﻿using PatientManagement.Controller;
+using PatientManagement.Model;
 using System.Data;
 
 namespace PatientManagement.View
@@ -87,7 +88,10 @@ namespace PatientManagement.View
 
         private void PatientReports_Load(object sender, EventArgs e)
         {
-            doctorDetails1.AddReportFilterValue();
+            if (User.IsDoctor)
+                doctorDetails1.DisplayCurrentUser();
+            else
+                doctorDetails1.AddReportFilterValue();
         }
     }
 }
