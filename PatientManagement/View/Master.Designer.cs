@@ -42,6 +42,7 @@
             adminToolStripMenuItem = new ToolStripMenuItem();
             createDBToolStripMenuItem = new ToolStripMenuItem();
             addUserToolStripMenuItem = new ToolStripMenuItem();
+            xRAYToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -70,7 +71,7 @@
             // 
             // registrationToolStripMenuItem
             // 
-            registrationToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { patientToolStripMenuItem, doctorToolStripMenuItem, uSGToolStripMenuItem });
+            registrationToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { patientToolStripMenuItem, doctorToolStripMenuItem, uSGToolStripMenuItem, xRAYToolStripMenuItem });
             registrationToolStripMenuItem.Name = "registrationToolStripMenuItem";
             registrationToolStripMenuItem.Size = new Size(82, 20);
             registrationToolStripMenuItem.Text = "Registration";
@@ -134,16 +135,23 @@
             // createDBToolStripMenuItem
             // 
             createDBToolStripMenuItem.Name = "createDBToolStripMenuItem";
-            createDBToolStripMenuItem.Size = new Size(180, 22);
+            createDBToolStripMenuItem.Size = new Size(126, 22);
             createDBToolStripMenuItem.Text = "Create DB";
             createDBToolStripMenuItem.Click += createDBToolStripMenuItem_Click;
             // 
             // addUserToolStripMenuItem
             // 
             addUserToolStripMenuItem.Name = "addUserToolStripMenuItem";
-            addUserToolStripMenuItem.Size = new Size(180, 22);
+            addUserToolStripMenuItem.Size = new Size(126, 22);
             addUserToolStripMenuItem.Text = "Add User";
             addUserToolStripMenuItem.Click += addUserToolStripMenuItem_Click;
+            // 
+            // xRAYToolStripMenuItem
+            // 
+            xRAYToolStripMenuItem.Name = "xRAYToolStripMenuItem";
+            xRAYToolStripMenuItem.Size = new Size(180, 22);
+            xRAYToolStripMenuItem.Text = "XRAY";
+            xRAYToolStripMenuItem.Click += xRAYToolStripMenuItem_Click;
             // 
             // Master
             // 
@@ -177,5 +185,6 @@
         private ToolStripMenuItem addUserToolStripMenuItem;
         private ToolStripMenuItem patientReportDatewiseToolStripMenuItem;
         private ToolStripMenuItem doctorsToolStripMenuItem;
+        private ToolStripMenuItem xRAYToolStripMenuItem;
     }
 }
