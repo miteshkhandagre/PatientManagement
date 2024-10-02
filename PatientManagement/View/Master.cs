@@ -71,6 +71,12 @@ namespace PatientManagement
             Xray xray = new Xray();
             xray.ShowDialog();
         }
+
+        private void bloodTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BloodTest bloodTest = new BloodTest();
+            bloodTest.ShowDialog();
+        }
         private void Master_Load(object sender, EventArgs e)
         {
             if (User.IsAdmin)
