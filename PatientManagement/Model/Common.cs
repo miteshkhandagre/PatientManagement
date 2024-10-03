@@ -8,6 +8,7 @@ namespace PatientManagement.Model
 {
     public class Common
     {
+        public static int Id { get; set; }
         public static string LoggedInUser { get; set; }
         public static string UserRole { get; set; }
     }
